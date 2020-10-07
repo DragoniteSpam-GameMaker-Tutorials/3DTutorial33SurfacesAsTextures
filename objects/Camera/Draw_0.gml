@@ -31,7 +31,8 @@ camera_set_proj_mat(camera, proj_mat);
 camera_apply(camera);
 
 // Everything must be drawn after the 3D projection has been set
-vertex_submit(vbuffer, pr_trianglelist, sprite_get_texture(spr_grass, 0));
+var paint_tex = surface_get_texture(Player.painting_surf);
+vertex_submit(vbuffer, pr_trianglelist, paint_tex);
 
 // Draw the player
 matrix_set(matrix_world, matrix_build(Player.x, Player.y, Player.z, 0, 0, 0, 1, 1, 1));
@@ -44,19 +45,19 @@ matrix_set(matrix_world, matrix_build_identity());
 
 // The other things
 matrix_set(matrix_world, matrix_build(400, 200, 0, 0, 0, 0, 1, 1, 1));
-vertex_submit(vb_cube, pr_trianglelist, -1);
+vertex_submit(vb_cube, pr_trianglelist, paint_tex);
 matrix_set(matrix_world, matrix_build_identity());
 
 matrix_set(matrix_world, matrix_build(300, 300, 0, 0, 0, 0, 1, 1, 1));
-vertex_submit(vb_cube, pr_trianglelist, -1);
+vertex_submit(vb_cube, pr_trianglelist, paint_tex);
 matrix_set(matrix_world, matrix_build_identity());
 
 matrix_set(matrix_world, matrix_build(600, 200, 0, 0, 0, 0, 1, 1, 1));
-vertex_submit(vb_octagon, pr_trianglelist, -1);
+vertex_submit(vb_octagon, pr_trianglelist, paint_tex);
 matrix_set(matrix_world, matrix_build_identity());
 
 matrix_set(matrix_world, matrix_build(200, 200, 0, 0, 0, 0, 2, 2, 2));
-vertex_submit(vb_sphere, pr_trianglelist, -1);
+vertex_submit(vb_sphere, pr_trianglelist, paint_tex);
 matrix_set(matrix_world, matrix_build_identity());
 
 matrix_set(matrix_world, matrix_build(200, 600, 0, 0, 0, 0, 2, 2, 2));

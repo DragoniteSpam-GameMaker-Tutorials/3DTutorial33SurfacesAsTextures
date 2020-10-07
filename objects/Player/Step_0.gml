@@ -65,6 +65,24 @@ if (mouse_lock) {
             }
         }
     }
+    if (!surface_exists(painting_surf)) {
+        painting_surf = surface_create(256, 256);
+        surface_set_target(painting_surf);
+        draw_clear_alpha(c_white, 1);
+        surface_reset_target();
+    }
+    var cull = gpu_get_cullmode();
+    gpu_set_cullmode(cull_noculling);
+    surface_set_target(painting_surf);
+    var mx = window_mouse_get_x() - window_get_width() + 256;
+    var my = window_mouse_get_y();
+    if (mouse_check_button(mb_left)) {
+        draw_line_width_colour(mx, my, mx_previous, my_previous, 4, c_blue, c_blue);
+    }
+    gpu_set_cullmode(cull);
+    mx_previous = mx;
+    my_previous = my;
+    surface_reset_target();
 }
 
 if (keyboard_check_pressed(vk_tab)) {

@@ -9,9 +9,6 @@ gpu_set_cullmode(cull_counterclockwise);
 view_mat = undefined;
 proj_mat = undefined;
 
-c_init();
-c_world_create();
-
 #region vertex format setup
 // Vertex format: data must go into vertex buffers in the order defined by this
 vertex_format_begin();
@@ -77,32 +74,3 @@ vb_octagon = load_model("octagon.d3d");
 vb_sphere = load_model("sphere.d3d");
 
 vb_one_way_wall = load_model("one-way-wall.d3d");
-
-///////////////////////////////////////////////////
-
-c_shape_cube = c_shape_create();
-c_shape_begin_trimesh();
-c_shape_load_trimesh("cube.d3d");
-c_shape_end_trimesh(c_shape_cube);
-c_shape_octagon = c_shape_create();
-c_shape_begin_trimesh();
-c_shape_load_trimesh("octagon.d3d");
-c_shape_end_trimesh(c_shape_octagon);
-
-c_obj_cube = c_object_create(c_shape_cube, -1, 1);
-c_world_add_object(c_obj_cube);
-c_transform_position(400, 200, 0);
-c_object_apply_transform(c_obj_cube);
-c_transform_identity();
-
-c_obj_cube_2 = c_object_create(c_shape_cube, -1, 1);
-c_world_add_object(c_obj_cube_2);
-c_transform_position(300, 300, 0);
-c_object_apply_transform(c_obj_cube_2);
-c_transform_identity();
-
-c_obj_octagon = c_object_create(c_shape_octagon, -1, 1);
-c_world_add_object(c_obj_octagon);
-c_transform_position(600, 200, 0);
-c_object_apply_transform(c_obj_octagon);
-c_transform_identity();

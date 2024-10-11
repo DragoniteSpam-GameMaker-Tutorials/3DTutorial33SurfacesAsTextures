@@ -36,13 +36,8 @@ if (mouse_lock) {
         dy -= dsin(look_dir) * move_speed;
     }
 
-    if (!c_overlap_position(c_object, x + dx, y, z)) {
-        x += dx;
-    }
-
-    if (!c_overlap_position(c_object, x, y + dy, z)) {
-        y += dy;
-    }
+    x += dx;
+    y += dy;
     #endregion
 } else {
     if (Camera.view_mat != undefined && Camera.proj_mat != undefined) {
@@ -53,16 +48,6 @@ if (mouse_lock) {
             ball.xspeed = 8 * mouse_ray[0];
             ball.yspeed = 8 * mouse_ray[1];
             ball.zspeed = 8 * mouse_ray[2];
-            var dist = 1000000;
-            if (c_raycast_world(mouse_ray[3], mouse_ray[4], mouse_ray[5],
-                mouse_ray[3] + dist * mouse_ray[0], mouse_ray[4] + dist * mouse_ray[1], mouse_ray[5] + dist * mouse_ray[2], 1)) {
-                    ball.x = c_hit_x();
-                    ball.y = c_hit_y();
-                    ball.z = c_hit_z();
-                    ball.xspeed = 0;
-                    ball.yspeed = 0;
-                    ball.zspeed = 0;
-            }
         }
     }
     if (!surface_exists(painting_surf)) {

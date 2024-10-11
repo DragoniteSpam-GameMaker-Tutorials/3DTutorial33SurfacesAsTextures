@@ -1,0 +1,12 @@
+{
+  "FolderOrderSettings":[],
+  "ResourceOrderSettings":[
+    {"name":"fnt_game","order":5,"path":"fonts/fnt_game/fnt_game.yy",},
+    {"name":"Ball","order":2,"path":"objects/Ball/Ball.yy",},
+    {"name":"Player","order":1,"path":"objects/Player/Player.yy",},
+    {"name":"load_model","order":1,"path":"scripts/load_model/load_model.yy",},
+    {"name":"screen_to_world","order":3,"path":"scripts/screen_to_world/screen_to_world.yy",},
+    {"name":"spr_heart","order":1,"path":"sprites/spr_heart/spr_heart.yy",},
+    {"name":"spr_shadow","order":6,"path":"sprites/spr_shadow/spr_shadow.yy",},
+  ],
+}
